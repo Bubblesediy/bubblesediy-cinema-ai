@@ -23,7 +23,7 @@ MAX_UPLOAD_BYTES = "8388608"
 [[d1_databases]]
 binding = "DB"
 database_name = "bubblesediy_db"
-database_id = "REPLACE_WITH_YOUR_D1_DATABASE_ID"
+database_id = "591d77bf-3fee-4d7b-ab0f-798a25e8e635"
 
 # Create with: wrangler r2 bucket create bubblesediy-assets
 [[r2_buckets]]

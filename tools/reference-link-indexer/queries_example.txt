@@ -1,0 +1,6 @@
+# One Internet Archive Advanced Search query per line. Lines starting with # are ignored.
+# Run with: python reference_link_indexer.py --target 2000 --query-file queries_example.txt
+mediatype:movies AND collection:opensource_movies
+mediatype:movies AND collection:prelinger
+mediatype:movies AND collection:classic_cartoons
+mediatype:movies AND collection:animationandcartoons

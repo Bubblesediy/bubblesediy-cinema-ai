@@ -1,0 +1,40 @@
+name = "bubblesediy-cinema-ai-api"
+main = "src/index.ts"
+compatibility_date = "2025-02-04"
+compatibility_flags = ["nodejs_compat"]
+
+# CORS origin for the deployed Cloudflare Pages frontend. Update after your
+# first Pages deploy, e.g. "https://bubblesediy-cinema-ai.pages.dev".
+[vars]
+APP_NAME = "BubblesEdiy Cinema AI"
+ALLOWED_ORIGIN = "http://localhost:3000"
+# Reachable only through a Cloudflare Tunnel or other public hostname pointed at
+# your self-hosted GPU box — Workers run at Cloudflare's edge and cannot reach
+# a "localhost" or LAN address on your machine. Leave blank to keep generation
+# honestly disabled until that tunnel exists.
+COMFYUI_URL = ""
+OLLAMA_URL = ""
+SCREENPLAY_MODEL = ""
+ACCESS_TOKEN_EXPIRE_MINUTES = "10080"
+MAX_UPLOAD_BYTES = "8388608"
+
+# Create with: wrangler d1 create bubblesediy_db
+# Then paste the returned database_id below.
+[[d1_databases]]
+binding = "DB"
+database_name = "bubblesediy_db"
+database_id = "REPLACE_WITH_YOUR_D1_DATABASE_ID"
+
+# Create with: wrangler r2 bucket create bubblesediy-assets
+[[r2_buckets]]
+binding = "ASSETS"
+bucket_name = "bubblesediy-assets"
+
+# Set the real secret with: wrangler secret put JWT_SECRET
+# Never put the real value here or commit it.
+
+# Polls any in-flight ComfyUI render job every minute so jobs complete even if
+# nobody has the dashboard open. The dashboard can also poll on demand via
+# POST /projects/:id/jobs/:jobId/poll.
+[triggers]
+crons = ["* * * * *"]

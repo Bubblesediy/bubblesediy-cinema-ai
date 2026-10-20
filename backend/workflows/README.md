@@ -1,0 +1,1 @@
+Put tested ComfyUI API-format workflow JSON files here. Configure filenames using IMAGE_WORKFLOW and VIDEO_WORKFLOW in backend/.env. Workflows are model- and node-specific; do not use a UI-export workflow unless it is the API format. Never expose the ComfyUI server publicly without authentication/network restrictions.

@@ -1,0 +1,12 @@
+node_modules/
+.next/
+.env
+.env.local
+.venv/
+__pycache__/
+*.pyc
+backend/cinema_ai.sqlite3
+backend/assets/
+.pytest_cache/
+tools/reference-link-indexer/bubblesediy_reference_links/
+tools/reference-link-indexer/*.sqlite3

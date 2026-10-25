@@ -15,7 +15,7 @@ type Health = {
 };
 type Job = { id: string; job_type: string; status: string; stage: string; error: string; created_at: string; updated_at: string };
 
-const API = "/api";
+const API = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8787";
 const TOKEN_KEY = "bubblesediy_token";
 
 async function request(path: string, token: string | null, init?: RequestInit) {
@@ -392,9 +392,7 @@ export default function Home() {
         <article className="card full">
           <h2>05 / Generation jobs</h2>
           <p className="muted">Every render attempt is a persisted job record — queued, processing, completed, failed or cancelled — never a fabricated success.</p>
-          <div className="row"><button className="btn" onClick={tryGenerate}>Check model setup & attempt render</button>
-            <button className="btn secondary" onClick={() => window.open("http://127.0.0.1:8000/docs", "_blank")}>Open backend API docs</button>
-          </div>
+                   <div className="row"><button className="btn" onClick={tryGenerate}>Check model setup & attempt render</button></div>
           {message && <p className={`status ${error ? "error" : ""}`} style={{ marginTop: 14 }}>{message}</p>}
           <div style={{ marginTop: 16 }}>
             {jobs.length === 0 && <p className="muted small">No generation jobs yet for this project.</p>}
